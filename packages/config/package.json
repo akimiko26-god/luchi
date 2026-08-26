@@ -1,0 +1,11 @@
+{
+  "name": "@luchi/config",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./eslint": "./eslint.base.js",
+    "./typescript/base": "./tsconfig.base.json",
+    "./typescript/nestjs": "./tsconfig.nestjs.json",
+    "./typescript/nextjs": "./tsconfig.nextjs.json"
+  }
+}

@@ -1,0 +1,53 @@
+---
+description: ЛУЧИ platform development rules
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# ЛУЧИ — Project Rules
+
+## Project Context
+
+ЛУЧИ — enterprise social platform where value is measured by verified good deeds, not likes.
+Internal currency "Rays" (Лучи) uses double-entry ledger. Bank-grade security required.
+
+## Architecture Rules
+
+1. **Clean Architecture** — Domain → Application → Infrastructure → Presentation
+2. **Domain-Driven Design** — bounded contexts in `apps/api/src/modules/`
+3. **Dependencies point INWARD** — domain has zero external dependencies
+4. **Event-Driven** — cross-module via domain events, never cross-module DB access
+5. **Repository Pattern** — data access through domain repository interfaces
+6. **Service Layer** — business logic in application/domain services, NEVER in controllers
+7. **DTO** — validated with class-validator at boundaries
+8. **Modular Monolith** — self-contained modules, microservice-ready
+
+## Module Structure
+
+```
+modules/{name}/
+├── domain/
+├── application/
+├── infrastructure/
+├── presentation/
+└── {name}.module.ts
+```
+
+## Code Quality — FORBIDDEN
+
+- `any`, `console.log`, magic numbers, code duplication
+- Fat controllers, business logic in UI or controllers
+- Secrets in code, balance as mutable number, direct SQL in services
+
+## Key Documentation
+
+- docs/ARCHITECTURE.md, docs/DATABASE.md, docs/API.md
+- docs/REWARD_ENGINE.md, docs/CODING_STANDARDS.md, docs/TESTING.md
+
+## When Implementing
+
+1. Read `/docs/` module doc first
+2. Domain → application → infrastructure → presentation
+3. Unit + integration tests alongside code
+4. Update API.md if endpoints change
