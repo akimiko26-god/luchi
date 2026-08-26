@@ -1,81 +1,81 @@
 # ЛУЧИ
 
-> Социальная сеть, основанная на подтверждённых добрых делах.
+Социальная платформа, где ценность человека измеряется **подтверждёнными добрыми делами**, а не лайками. Внутренняя валюта **Лучи** учитывается через двойную бухгалтерскую запись (ledger).
 
-## Stack
+## Что внутри
 
-- **API:** NestJS (Modular Monolith, Clean Architecture)
-- **Web:** Next.js 14 (user app)
-- **Admin:** Next.js 14 (admin panel)
-- **DB:** PostgreSQL 16, Redis 7, MinIO (S3)
-- **Monorepo:** Turborepo + npm workspaces
+| Часть | Технология | Назначение |
+|--------|------------|------------|
+| `apps/api` | NestJS | Backend: авторизация, Лучи, дела, лента, магазин, модерация |
+| `apps/web` | Next.js 14 | Пользовательское приложение |
+| `apps/admin` | Next.js 14 | Админ-панель |
+| `packages/ui` | React | Дизайн-система |
+| `docs/` | Markdown | Архитектура и спецификации **на русском** |
 
-## Quick Start
+## Быстрый запуск
 
-### 1. Prerequisites
+Локальные файлы окружения уже лежат в репозитории (`.env`, `apps/api/.env`, `apps/web/.env.local`, `apps/admin/.env.local`). Это значения для **локальной разработки**, не для продакшена.
 
-- Node.js 20+
-- Docker & Docker Compose
-
-### 2. Install
+Нужны **Node.js 20+** и **PostgreSQL 16** (пользователь `luchi` / пароль `luchi_dev`, база `luchi`).
 
 ```bash
 npm install
-cp .env.example .env
-```
-
-### 3. Start infrastructure
-
-```bash
-docker compose up -d
-```
-
-### 4. Initialize database schemas
-
-```bash
-# After postgres is ready
-psql postgresql://luchi:luchi_dev@localhost:5432/luchi -f scripts/migrate/001_init_schemas.sql
-cd apps/api && npm run db:generate && npm run db:push
-```
-
-### 5. Run development
-
-```bash
+cd apps/api
+npx prisma db push
+npm run db:seed
+cd ../..
 npm run dev
 ```
 
-| App | URL |
-|-----|-----|
-| Web | http://localhost:3000 |
+| Приложение | Адрес |
+|------------|--------|
+| Веб | http://localhost:3000 |
 | API | http://localhost:3001/api/v1 |
-| API Docs | http://localhost:3001/api/docs |
-| Admin | http://localhost:3002 |
-| MinIO Console | http://localhost:9001 |
+| Swagger | http://localhost:3001/api/docs |
+| Админка | http://localhost:3002 |
 
-## Project Structure
+### Демо-аккаунты
+
+Пароль у всех: `DemoP@ss123!`
+
+| Роль | Email |
+|------|--------|
+| Пользователь | `demo@luchi.app` |
+| Администратор | `admin@luchi.app` |
+| Модератор | `moderator@luchi.app` |
+| Получатель помощи | `olga@luchi.app` |
+
+## Документация
+
+Полный указатель на русском: **[docs/README.md](./docs/README.md)**
+
+- [Видение](./docs/VISION.md)
+- [Архитектура](./docs/ARCHITECTURE.md)
+- [База данных](./docs/DATABASE.md)
+- [API](./docs/API.md)
+- [Движок наград (Лучи)](./docs/REWARD_ENGINE.md)
+- [Безопасность](./docs/SECURITY.md)
+- [Стандарты кода](./docs/CODING_STANDARDS.md)
+
+## Структура репозитория
 
 ```
 apps/
-  api/          NestJS backend
-  web/          User-facing Next.js app
-  admin/        Admin panel
+  api/          Backend NestJS
+  web/          Приложение для пользователей
+  admin/        Админ-панель
 packages/
-  ui/           Design system
-  shared-types/ Shared TypeScript types
-  config/       Shared ESLint/TS configs
-docs/           Architecture documentation
-infra/          Docker, Terraform (Phase 2)
-scripts/        Migrations, seeders
+  ui/           Компоненты интерфейса
+  shared-types/ Общие типы TypeScript
+  config/       Общие настройки ESLint и TypeScript
+docs/           Документация платформы
+infra/          Docker
+scripts/        SQL-миграции
 ```
 
-## Documentation
+## Этапы
 
-Full architecture docs: [docs/README.md](./docs/README.md)
+- **Фаза 0:** документация
+- **Фаза 1:** рабочий контур — вход, лента, добрые дела, Лучи, магазин, админка
 
-## Development Phases
-
-- **Phase 0:** Documentation ✅
-- **Phase 1 Sprint 0:** Infrastructure ✅ (current)
-- **Phase 1 Sprint 1:** IAM + Auth (next)
-
-See [docs/ROADMAP.md](./docs/ROADMAP.md) for the full plan.
+Подробный план: [docs/ROADMAP.md](./docs/ROADMAP.md)

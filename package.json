@@ -2,7 +2,7 @@
   "name": "luchi",
   "version": "0.1.0",
   "private": true,
-  "description": "ЛУЧИ — social platform powered by verified good deeds",
+  "description": "ЛУЧИ — социальная платформа, где ценность измеряется подтверждёнными добрыми делами",
   "workspaces": [
     "apps/*",
     "packages/*"

@@ -11,13 +11,9 @@ build/
 *.tsbuildinfo
 turbo-*
 
-# Environment
-.env
-.env.local
-.env.development
+# Environment (prod only — local demo .env is committed)
 .env.staging
 .env.production
-!.env.example
 
 # IDE
 .idea/

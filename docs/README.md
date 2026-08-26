@@ -1,129 +1,114 @@
-# ЛУЧИ — Documentation Index
+# ЛУЧИ — указатель документации
 
 **Версия:** 1.0.0  
 **Дата:** 2026-08-07  
-**Статус:** Phase 0 Complete — Ready for Implementation  
+**Язык:** русский  
 
 ---
 
-## Project Overview
+## О проекте
 
-**ЛУЧИ** — enterprise social platform where value is measured by verified good deeds, not likes. Internal currency "Rays" (Лучи) uses double-entry ledger with bank-grade security.
-
----
-
-## Documentation Map
-
-### Vision & Scope
-
-| Document | Description |
-|----------|-------------|
-| [VISION.md](./VISION.md) | Product vision, USP, long-term goals |
-| [MISSION.md](./MISSION.md) | Mission, strategic goals, value model |
-| [PROJECT_SCOPE.md](./PROJECT_SCOPE.md) | MVP scope, user stories, acceptance criteria |
-| [ROADMAP.md](./ROADMAP.md) | Sprint plan, phases, timeline |
-
-### Architecture
-
-| Document | Description |
-|----------|-------------|
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Clean Architecture, domains, events, tech stack |
-| [DATABASE.md](./DATABASE.md) | Full schema, ER diagrams, ledger design |
-| [API.md](./API.md) | REST API specification, all endpoints |
-| [DEPLOYMENT.md](./DEPLOYMENT.md) | Infrastructure, CI/CD, monitoring |
-
-### Security & Access
-
-| Document | Description |
-|----------|-------------|
-| [SECURITY.md](./SECURITY.md) | OWASP, encryption, audit, incident response |
-| [AUTH.md](./AUTH.md) | JWT, refresh rotation, sessions, OAuth |
-| [RBAC.md](./RBAC.md) | 12 roles, 80+ permissions, matrix |
-
-### Core Modules
-
-| Document | Description |
-|----------|-------------|
-| [REWARD_ENGINE.md](./REWARD_ENGINE.md) | Double-entry ledger, Rays currency |
-| [SOCIAL_NETWORK.md](./SOCIAL_NETWORK.md) | Posts, comments, friends, feed |
-| [CHAT.md](./CHAT.md) | Direct/group messaging, WebSocket |
-| [STORE.md](./STORE.md) | Marketplace, orders, refunds |
-| [MODERATION.md](./MODERATION.md) | Review queue, reports, bans |
-| [ANTI_FRAUD.md](./ANTI_FRAUD.md) | Fraud detection, risk scoring |
-| [MEDIA.md](./MEDIA.md) | Upload, storage, pHash |
-| [SEARCH.md](./SEARCH.md) | Full-text search |
-| [NOTIFICATIONS.md](./NOTIFICATIONS.md) | In-app, email, push |
-| [ANALYTICS.md](./ANALYTICS.md) | Metrics, dashboards |
-| [AI.md](./AI.md) | AI-assisted moderation, ML |
-
-### UI & Admin
-
-| Document | Description |
-|----------|-------------|
-| [UI_SYSTEM.md](./UI_SYSTEM.md) | Design system, colors, components |
-| [ADMIN_PANEL.md](./ADMIN_PANEL.md) | Admin panel features, sections |
-
-### Development
-
-| Document | Description |
-|----------|-------------|
-| [TESTING.md](./TESTING.md) | Testing strategy, coverage, CI |
-| [CODING_STANDARDS.md](./CODING_STANDARDS.md) | TypeScript, patterns, conventions |
-| [CURSOR_RULES.md](./CURSOR_RULES.md) | AI assistant rules for development |
+**ЛУЧИ** — социальная платформа, где ценность измеряется подтверждёнными добрыми делами, а не лайками. Внутренняя валюта «Лучи» ведётся через двойную бухгалтерскую запись и требует банковского уровня безопасности.
 
 ---
 
-## Implementation Order
+## Карта документов
+
+### Видение и рамки
+
+| Документ | О чём |
+|----------|--------|
+| [VISION.md](./VISION.md) | Видение продукта, отличие от соцсетей, долгосрочные цели |
+| [MISSION.md](./MISSION.md) | Миссия, стратегические цели, модель ценности |
+| [PROJECT_SCOPE.md](./PROJECT_SCOPE.md) | Рамки MVP, пользовательские сценарии, критерии приёмки |
+| [ROADMAP.md](./ROADMAP.md) | Спринты, фазы, сроки |
+
+### Архитектура
+
+| Документ | О чём |
+|----------|--------|
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Clean Architecture, домены, события, стек |
+| [DATABASE.md](./DATABASE.md) | Схема БД, диаграммы, устройство ledger |
+| [API.md](./API.md) | REST API, все эндпоинты |
+| [DEPLOYMENT.md](./DEPLOYMENT.md) | Инфраструктура, CI/CD, мониторинг |
+
+### Безопасность и доступ
+
+| Документ | О чём |
+|----------|--------|
+| [SECURITY.md](./SECURITY.md) | OWASP, шифрование, аудит, инциденты |
+| [AUTH.md](./AUTH.md) | JWT, ротация refresh, сессии, OAuth |
+| [RBAC.md](./RBAC.md) | Роли, права, матрица доступа |
+
+### Основные модули
+
+| Документ | О чём |
+|----------|--------|
+| [REWARD_ENGINE.md](./REWARD_ENGINE.md) | Ledger и валюта Лучи |
+| [SOCIAL_NETWORK.md](./SOCIAL_NETWORK.md) | Посты, комментарии, друзья, лента |
+| [CHAT.md](./CHAT.md) | Личные и групповые сообщения, WebSocket |
+| [STORE.md](./STORE.md) | Магазин, заказы, возвраты |
+| [MODERATION.md](./MODERATION.md) | Очередь проверки, жалобы, блокировки |
+| [ANTI_FRAUD.md](./ANTI_FRAUD.md) | Антифрод, оценка риска |
+| [MEDIA.md](./MEDIA.md) | Загрузка файлов, хранение |
+| [SEARCH.md](./SEARCH.md) | Полнотекстовый поиск |
+| [NOTIFICATIONS.md](./NOTIFICATIONS.md) | Уведомления: в приложении, почта, push |
+| [ANALYTICS.md](./ANALYTICS.md) | Метрики и дашборды |
+| [AI.md](./AI.md) | ИИ-помощь модерации |
+
+### Интерфейс и админка
+
+| Документ | О чём |
+|----------|--------|
+| [UI_SYSTEM.md](./UI_SYSTEM.md) | Дизайн-система, цвета, компоненты |
+| [ADMIN_PANEL.md](./ADMIN_PANEL.md) | Возможности админ-панели |
+
+### Разработка
+
+| Документ | О чём |
+|----------|--------|
+| [TESTING.md](./TESTING.md) | Стратегия тестов, покрытие, CI |
+| [CODING_STANDARDS.md](./CODING_STANDARDS.md) | TypeScript, паттерны, соглашения |
+| [CURSOR_RULES.md](./CURSOR_RULES.md) | Правила для ИИ-ассистента |
+
+---
+
+## Порядок реализации
 
 ```
-Phase 0: Documentation ✅ COMPLETE
+Фаза 0: документация
     ↓
-Phase 1 Sprint 0: Infrastructure (monorepo, Docker, CI)
+Фаза 1, спринт 0: инфраструктура (монорепозиторий, Docker, CI)
     ↓
-Phase 1 Sprint 1: IAM + Auth
+Фаза 1, спринт 1: IAM и авторизация
     ↓
-Phase 1 Sprint 2: Ledger Engine ⚠️ CRITICAL
+Фаза 1, спринт 2: ledger (Лучи)
     ↓
-Phase 1 Sprint 3: Good Deeds + Reward integration
+Фаза 1, спринт 3: добрые дела и награды
     ↓
-Phase 1 Sprint 4: Social Core
+Фаза 1, спринт 4: социальное ядро
     ↓
-Phase 1 Sprint 5: Store + Moderation + Media
+Фаза 1, спринт 5: магазин, модерация, медиа
     ↓
-Phase 1 Sprint 6: Admin + Anti-Fraud + Notifications
+Фаза 1, спринт 6: админка, антифрод, уведомления
     ↓
-Phase 1 Sprint 7: UI Polish + Demo Seed
+Фаза 1, спринт 7: интерфейс и демо-данные
     ↓
-Phase 1 Sprint 8: Testing + Launch
+Фаза 1, спринт 8: тесты и запуск
 ```
 
 ---
 
-## Key Architectural Decisions
+## Ключевые решения
 
-1. **Modular Monolith** → Microservices when needed
-2. **Double-Entry Ledger** — balance never stored as number
-3. **Event-Driven** — domain events for cross-module communication
-4. **Permission-Based RBAC** — 12 roles, 80+ permissions
-5. **Bank-Grade Security** — OWASP Top 10, Argon2id, JWT rotation
-6. **PostgreSQL** — primary store with domain schemas
-7. **NestJS + Next.js** — TypeScript full-stack monorepo
-
----
-
-## Demo Database Targets
-
-| Entity | Count |
-|--------|-------|
-| Users | ≥ 500 |
-| Posts | ≥ 2,000 |
-| Comments | ≥ 10,000 |
-| Organizations | ≥ 50 |
-| Events | ≥ 150 |
-| Tasks | ≥ 150 |
-| Store items | ≥ 100 |
-| Ledger entries | ≥ 100,000 |
+1. **Модульный монолит** — позже можно выделить микросервисы
+2. **Двойная запись** — баланс Лучей никогда не хранится одним числом
+3. **События** — модули общаются через domain events
+4. **RBAC по правам** — роли и разрешения
+5. **Безопасность банковского уровня** — OWASP, Argon2id, ротация JWT
+6. **PostgreSQL** — основная БД со схемами по доменам
+7. **NestJS + Next.js** — TypeScript-монорепозиторий
 
 ---
 
-*Phase 0 documentation is complete. Proceed to Phase 1 Sprint 0: Infrastructure.*
+Вернуться к [корневому README](../README.md).
