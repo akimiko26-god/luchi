@@ -40,7 +40,7 @@
 - Секреты (`JWT_SECRET`) генерирует Render, они **не** берутся из локальных `.env`.
 - `DATABASE_URL` подставляется из Postgres по внутренней сети.
 - CORS и `NEXT_PUBLIC_API_URL` берутся из публичных URL соседних сервисов.
-- Перед каждым деплоем API: SQL-схемы (`scripts/migrate/001_init_schemas.sql`) + `prisma db push`.
+- На старте API: SQL-схемы (`scripts/migrate/001_init_schemas.sql`) + `prisma db push` (в `startCommand`, потому что **pre-deploy на free не поддерживается**).
 - Seed выполняется **только при первом** успешном деплое API.
 
 ## Ограничения free-тарифа
@@ -53,7 +53,7 @@
 
 ## Если деплой упал
 
-1. Логи **luchi-api** → шаг predeploy: нет ли ошибки Prisma / `DATABASE_URL`.
+1. Логи **luchi-api** → старт сервиса: нет ли ошибки Prisma / `DATABASE_URL`.
 2. Логи **luchi-web** / **luchi-admin**: есть ли `API_ORIGIN` и прошла ли сборка Next.js.
 3. Health API: `GET /api/v1/health` должен отвечать `{"status":"ok",...}`.
 4. CORS: в браузере Origin веб-приложения должен совпадать с `WEB_ORIGIN` у API.

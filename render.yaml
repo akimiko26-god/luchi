@@ -17,8 +17,7 @@ services:
     region: frankfurt
     autoDeployTrigger: commit
     buildCommand: NPM_CONFIG_PRODUCTION=false npm ci && npx prisma generate --schema=apps/api/prisma/schema.prisma && npm run build -w @luchi/api
-    startCommand: npm run start:prod -w @luchi/api
-    preDeployCommand: npm run render:predeploy
+    startCommand: npm run render:predeploy && npm run start:prod -w @luchi/api
     initialDeployHook: npm run render:seed
     healthCheckPath: /api/v1/health
     envVars:
