@@ -1,5 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import * as argon2 from 'argon2';
+import { ensureProductionDatabaseSsl } from '../src/shared/config/database-url';
+
+ensureProductionDatabaseSsl();
 
 const prisma = new PrismaClient();
 const DEMO_PASSWORD = 'DemoP@ss123!';

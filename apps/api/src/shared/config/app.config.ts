@@ -2,6 +2,34 @@ import { registerAs } from '@nestjs/config';
 
 export const APP_CONFIG_KEY = 'app';
 
+function toOrigin(value: string | undefined): string | undefined {
+  if (!value) {
+    return undefined;
+  }
+  const trimmed = value.trim().replace(/\/$/, '');
+  if (!trimmed) {
+    return undefined;
+  }
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+    return trimmed;
+  }
+  return `https://${trimmed}`;
+}
+
+function collectCorsOrigins(): string[] {
+  const fromList = (process.env.CORS_ORIGINS ?? 'http://localhost:3000,http://localhost:3002')
+    .split(',')
+    .map((item) => toOrigin(item))
+    .filter((item): item is string => Boolean(item));
+  const extras = [
+    toOrigin(process.env.WEB_ORIGIN),
+    toOrigin(process.env.ADMIN_ORIGIN),
+    toOrigin(process.env.WEB_HOST),
+    toOrigin(process.env.ADMIN_HOST),
+  ].filter((item): item is string => Boolean(item));
+  return [...new Set([...fromList, ...extras])];
+}
+
 export type AppConfig = {
   nodeEnv: string;
   port: number;
@@ -13,8 +41,8 @@ export const appConfig = registerAs(
   APP_CONFIG_KEY,
   (): AppConfig => ({
     nodeEnv: process.env.NODE_ENV ?? 'development',
-    port: parseInt(process.env.API_PORT ?? '3001', 10),
-    corsOrigins: (process.env.CORS_ORIGINS ?? 'http://localhost:3000').split(','),
+    port: parseInt(process.env.PORT ?? process.env.API_PORT ?? '3001', 10),
+    corsOrigins: collectCorsOrigins(),
     apiPrefix: 'api/v1',
   }),
 );

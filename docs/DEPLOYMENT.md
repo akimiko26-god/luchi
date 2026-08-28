@@ -9,6 +9,8 @@
 
 Документ описывает инфраструктуру, окружения, CI/CD pipeline и стратегию деплоя платформы ЛУЧИ от development до production.
 
+Текущий публичный деплой-демо: **[RENDER.md](./RENDER.md)** (Render Blueprint, `render.yaml`).
+
 ---
 
 ## 2. Environments

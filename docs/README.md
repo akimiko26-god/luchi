@@ -31,6 +31,7 @@
 | [DATABASE.md](./DATABASE.md) | Схема БД, диаграммы, устройство ledger |
 | [API.md](./API.md) | REST API, все эндпоинты |
 | [DEPLOYMENT.md](./DEPLOYMENT.md) | Инфраструктура, CI/CD, мониторинг |
+| [RENDER.md](./RENDER.md) | Деплой на Render.com (Blueprint) |
 
 ### Безопасность и доступ
 

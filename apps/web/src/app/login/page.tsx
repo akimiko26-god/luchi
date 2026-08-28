@@ -39,7 +39,7 @@ export default function LoginPage() {
       localStorage.setItem('access_token', body.data.accessToken);
       router.push('/feed');
     } catch {
-      setError('API недоступен. Запустите docker compose и npm run dev');
+      setError('Не удалось связаться с сервером. Проверьте, что API доступен.');
     } finally {
       setLoading(false);
     }

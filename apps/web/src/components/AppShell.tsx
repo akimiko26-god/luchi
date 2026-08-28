@@ -77,7 +77,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-3">
             <RayBalance balance={cabinet?.raysBalance ?? 0} />
             {isAdmin && (
-              <a href="http://localhost:3002" className="text-sm text-sky underline">
+              <a
+                href={process.env.NEXT_PUBLIC_ADMIN_URL ?? 'http://localhost:3002'}
+                className="text-sm text-sky underline"
+              >
                 Админка
               </a>
             )}

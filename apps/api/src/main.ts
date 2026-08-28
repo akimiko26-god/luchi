@@ -22,6 +22,10 @@ async function bootstrap(): Promise<void> {
     throw new Error('Application configuration is missing');
   }
 
+  if (appConfig.nodeEnv === 'production') {
+    app.set('trust proxy', 1);
+  }
+
   app.use(
     helmet({
       crossOriginResourcePolicy: { policy: 'cross-origin' },
@@ -52,7 +56,7 @@ async function bootstrap(): Promise<void> {
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api/docs', app, document);
 
-  await app.listen(appConfig.port);
+  await app.listen(appConfig.port, '0.0.0.0');
 
   const logger = new Logger('Bootstrap');
   logger.log(`API running on http://localhost:${appConfig.port}/${appConfig.apiPrefix}`);

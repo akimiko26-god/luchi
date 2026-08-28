@@ -45,6 +45,14 @@ npm run dev
 | Модератор | `moderator@luchi.app` |
 | Получатель помощи | `olga@luchi.app` |
 
+## Деплой на Render
+
+Инструкция: **[docs/RENDER.md](./docs/RENDER.md)**. В корне лежит `render.yaml`.
+
+1. Откройте [Render Dashboard](https://dashboard.render.com) → **New → Blueprint**.
+2. Подключите GitHub-репозиторий `akimiko26-god/luchi`, ветка `main`.
+3. Apply — поднимутся Postgres, API, веб и админка.
+
 ## Документация
 
 Полный указатель на русском: **[docs/README.md](./docs/README.md)**
@@ -56,6 +64,7 @@ npm run dev
 - [Движок наград (Лучи)](./docs/REWARD_ENGINE.md)
 - [Безопасность](./docs/SECURITY.md)
 - [Стандарты кода](./docs/CODING_STANDARDS.md)
+- [Деплой на Render](./docs/RENDER.md)
 
 ## Структура репозитория
 

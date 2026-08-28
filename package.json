@@ -16,7 +16,9 @@
     "test": "turbo test",
     "test:unit": "turbo test:unit",
     "test:integration": "turbo test:integration",
-    "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "render:predeploy": "node scripts/render-predeploy.cjs",
+    "render:seed": "npm run db:seed -w @luchi/api"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

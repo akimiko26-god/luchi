@@ -77,7 +77,12 @@ export class AuthController {
     const cookieName = this.tokenService.getRefreshCookieName();
     const refreshToken = req.cookies?.[cookieName] as string | undefined;
     await this.authService.logout(refreshToken, user.sub, getRequestMeta(req));
-    res.clearCookie(cookieName, { path: '/api/v1/auth' });
+    const isProduction = process.env.NODE_ENV === 'production';
+    res.clearCookie(cookieName, {
+      path: '/api/v1/auth',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'strict',
+    });
     return { data: { success: true } };
   }
 
@@ -87,7 +92,7 @@ export class AuthController {
     res.cookie(cookieName, refreshToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: 'strict',
+      sameSite: isProduction ? 'none' : 'strict',
       path: '/api/v1/auth',
       maxAge: this.tokenService.getRefreshCookieMaxAge(),
     });
